@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/20"
+xmlns:fx = "http://javafx.com/fxml/1"
+      fx:controller="com.expensetracker.MainController"
+alignment="CENTER"
+spacing="10" VBox.vgrow="ALWAYS">
+    <TableView fx:id="expenseTable" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn text = "Category" fx:id="categoryColumn"/>
+            <TableColumn text = "Amount" fx:id="amountColumn"/>
+            <TableColumn text = "Date" fx:id="dateColumn"/>
+        </columns>
+    </TableView>
+    <Label fx:id="totalSum" text="Total: 0"/>
+    <HBox spacing = "10">
+        <TextField fx:id="categoryField" promptText="category"/>
+        <TextField fx:id="amountField" promptText="amount"/>
+        <DatePicker fx:id="datePicker"/>
+        <Button text="Add Expense" onAction="#addExpense"/>
+    </HBox>
+    <Button text="Delete selected" onAction="#deleteExpense"/>
+</VBox>
+
