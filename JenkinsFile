@@ -1,0 +1,15 @@
+pipeline{
+    agent any
+    stages{
+        stage('Checkout'){
+        steps{
+            git 'https://github.com/loktionov-data/ExpenseTracker.git'
+        }
+    }
+        stage('Build'){
+            steps{
+                bat 'echo Building project'
+            }
+        }
+    }
+}
