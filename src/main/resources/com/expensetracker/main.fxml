@@ -6,11 +6,12 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
+<?import javafx.geometry.Insets?>
 <VBox xmlns="http://javafx.com/javafx/20"
-xmlns:fx = "http://javafx.com/fxml/1"
+      xmlns:fx = "http://javafx.com/fxml/1"
       fx:controller="com.expensetracker.MainController"
-alignment="CENTER"
-spacing="10" VBox.vgrow="ALWAYS">
+      alignment="CENTER"
+      spacing="10" VBox.vgrow="ALWAYS">
     <TableView fx:id="expenseTable" VBox.vgrow="ALWAYS">
         <columns>
             <TableColumn text = "Category" fx:id="categoryColumn"/>
@@ -19,12 +20,16 @@ spacing="10" VBox.vgrow="ALWAYS">
         </columns>
     </TableView>
     <Label fx:id="totalSum" text="Total: 0"/>
-    <HBox spacing = "10">
+    <HBox fx:id="inputBox" spacing = "10" alignment="BASELINE_CENTER">
+        <padding>
+            <Insets bottom="25"/>
+        </padding>
         <TextField fx:id="categoryField" promptText="category"/>
-        <TextField fx:id="amountField" promptText="amount"/>
+        <TextField fx:id="amountField" promptText="amount" />
         <DatePicker fx:id="datePicker"/>
         <Button text="Add Expense" onAction="#addExpense"/>
+        <Button text="Delete selected" onAction="#deleteExpense"/>
+        <Button text="Sort by date" onAction="#sortByDate"/>
     </HBox>
-    <Button text="Delete selected" onAction="#deleteExpense"/>
 </VBox>
 

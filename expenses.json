@@ -1,17 +1,12 @@
 [
   {
-    "category": "Food",
-    "amount": 22.0,
-    "date": "2026-03-02"
-  },
-  {
-    "category": "Transport",
-    "amount": 11.0,
-    "date": "2026-03-02"
-  },
-  {
     "category": "Entertainment",
     "amount": 44.0,
     "date": "2026-03-01"
+  },
+  {
+    "category": "Food",
+    "amount": 22.0,
+    "date": "2025-02-17"
   }
 ]

@@ -9,6 +9,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.time.LocalDate;
 import com.expensestorage.ExpenseStorage;
+import javafx.scene.layout.HBox;
 
 public class MainController {
     @FXML
@@ -22,6 +23,8 @@ public class MainController {
 
     private ObservableList<Expense> expenses = FXCollections.observableArrayList();
 
+    @FXML
+    private HBox inputBox;
     @FXML
     private TextField categoryField;
 
@@ -38,11 +41,18 @@ public class MainController {
     @FXML
     public void initialize(){
         categoryColumn.setCellValueFactory(new PropertyValueFactory<>("category"));
+        categoryColumn.prefWidthProperty().bind(expenseTable.widthProperty().divide(3));
+
         amountColumn.setCellValueFactory(new PropertyValueFactory<>("amount"));
+        amountColumn.prefWidthProperty().bind(expenseTable.widthProperty().divide(3));
+
         dateColumn.setCellValueFactory(new PropertyValueFactory<>("date"));
+        dateColumn.prefWidthProperty().bind(expenseTable.widthProperty().divide(3));
+
         expenses.addAll(ExpenseStorage.loadExpenses());
         expenseTable.setItems(expenses);
         expenseTable.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+        expenseTable.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
         datePicker.setDayCellFactory(picker-> new DateCell(){
             @Override
             public void updateItem(LocalDate date, boolean empty){
@@ -54,6 +64,10 @@ public class MainController {
                 }
             }
         });
+        categoryField.prefWidthProperty().bind(inputBox.widthProperty().multiply(0.2));
+        amountField.prefWidthProperty().bind(inputBox.widthProperty().multiply(0.2));
+        datePicker.prefWidthProperty().bind(inputBox.widthProperty().multiply(0.13));
+
     }
 
     @FXML
@@ -64,8 +78,20 @@ public class MainController {
     @FXML
     private void addExpense(){
         String categoryToAdd = categoryField.getText();
-        double amountToAdd = Double.parseDouble(amountField.getText());
+        String amountText = amountField.getText();
         LocalDate date = datePicker.getValue();
+
+        double amountToAdd;
+        if(categoryToAdd == null || categoryToAdd.isEmpty()){
+            return;
+        }
+
+        try{
+           amountToAdd = Double.parseDouble(amountField.getText());
+        }catch (NumberFormatException e)
+        {
+            return;
+        }
 
         Expense expense = new Expense(categoryToAdd, amountToAdd, date);
         expenses.add(expense);
@@ -76,6 +102,11 @@ public class MainController {
         datePicker.setValue(null);
     }
 
+    @FXML
+    private void sortByDate(){
+        expenseTable.getSortOrder().add(dateColumn);
+
+    }
 
     @FXML
     private void deleteExpense(){
