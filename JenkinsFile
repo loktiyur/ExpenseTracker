@@ -13,7 +13,7 @@ pipeline{
         }
         stage('Test'){
             steps{
-                bat 'mvn -DTest=ExpenseServiceTest test'
+                bat 'mvn -Dtest=ExpenseServiceTest test'
             }
         }
     }
