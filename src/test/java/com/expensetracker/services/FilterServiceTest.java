@@ -33,7 +33,7 @@ public class FilterServiceTest {
         LocalDate dateToTest = LocalDate.of(2020, 10, 2);
         Expense e1 = new Expense("Entertainment", 22, dateToTest);
         Predicate<Expense> ex = fs.createPredicate(null, LocalDate.of(2021, 12, 3), dateToTest);
-        assertTrue(ex.test(e1));
+        assertFalse(ex.test(e1));
     }
 
     @Test
