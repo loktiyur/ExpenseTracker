@@ -8,7 +8,7 @@ pipeline{
     }
         stage('Build'){
             steps{
-                bat 'echo Building project'
+                bat 'mvn clean package -DskipTests'
             }
         }
         stage('Test'){
@@ -25,10 +25,19 @@ pipeline{
                 }
             }
         }
+        stage('Archive'){
+            archiveArtifacts artifacts '**/target/*.jar', fingerprint: true
+        }
     }
     post{
                 always{
                     junit '**/target/surefire-reports/*.xml'
                 }
+                success{
+                    echo 'Build passed'
+                    }
+                failure{
+                    echo 'Build failed!'
+                    }
             }
 }
