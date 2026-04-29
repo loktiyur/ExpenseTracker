@@ -8,6 +8,7 @@ import javafx.collections.ObservableList;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Set;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 //Service responsible for the operations with expenses
@@ -34,7 +35,12 @@ public class ExpenseService {
 
     //Function for removing selected expenses from the list and persisting changes to json
     public void deleteExpenses(List<Expense> expensesToDelete) {
-        expenses.removeAll(expensesToDelete);
+        Set<UUID> idsToDelete = expensesToDelete.stream()
+                .map(Expense::getId)
+                .collect(Collectors.toSet());
+
+        expenses.removeIf(expense -> idsToDelete.contains(expense.getId()));
+
         ExpenseStorage.saveExpenses(expenses);
     }
 
@@ -48,5 +54,11 @@ public class ExpenseService {
         return expenses.stream().map(Expense::getCategory).collect(Collectors.toSet());
     }
 
+    public Expense getExpensebyId(UUID id){
+        for(Expense expense: expenses){
+            if(expense.getId().equals(id)) return expense;
+        };
+        return null;
+    }
 
 }

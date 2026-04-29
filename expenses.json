@@ -1,27 +1,56 @@
 [
   {
-    "category": "Entertainment",
-    "amount": 44.0,
-    "date": "2026-03-01"
-  },
-  {
-    "category": "DS",
-    "amount": 22.0,
-    "date": "2026-03-11"
-  },
-  {
-    "category": "FF",
-    "amount": 22.0,
-    "date": "2026-03-31"
-  },
-  {
+    "id": "26d13d9a-6a08-4b01-bf63-6c44df82d3f6",
     "category": "Food",
-    "amount": 1.0,
-    "date": "2026-03-30"
+    "amount": 22.0,
+    "date": "2025-04-05"
   },
   {
-    "category": "Semen",
+    "id": "3ae7435b-1eb5-42c7-884f-e73a1f58724c",
+    "category": "Food",
     "amount": 22.0,
-    "date": "2026-04-01"
+    "date": "2025-04-05"
+  },
+  {
+    "id": "c5638441-d662-4bd2-aba1-200c73c03553",
+    "category": "Food",
+    "amount": 22.0,
+    "date": "2025-04-05"
+  },
+  {
+    "id": "9e79e395-e53f-4a57-9fcf-eaaa98488654",
+    "category": "Food",
+    "amount": 22.0,
+    "date": "2025-04-05"
+  },
+  {
+    "id": "59b21da7-7f5e-4d9b-b5df-f1dce6f87cf3",
+    "category": "Food",
+    "amount": 22.0,
+    "date": "2025-04-05"
+  },
+  {
+    "id": "67a66422-cb4f-4d29-ad0d-9bab36942c7f",
+    "category": "Food",
+    "amount": 22.0,
+    "date": "2025-04-05"
+  },
+  {
+    "id": "56c64255-19dd-47d7-aa19-6a2c4e474dc7",
+    "category": "Food",
+    "amount": 22.0,
+    "date": "2025-04-05"
+  },
+  {
+    "id": "fb6028c9-5f09-4dfd-952a-dc846444704e",
+    "category": "Food",
+    "amount": 22.0,
+    "date": "2026-05-04"
+  },
+  {
+    "id": "36a4f5ba-535a-4594-adda-edf4e0be69a6",
+    "category": "Not Food",
+    "amount": 34.0,
+    "date": "2002-02-02"
   }
 ]

@@ -9,7 +9,7 @@
     <padding>
         <Insets top="10" right="0" bottom="0" left="0"/>
     </padding>
-    <VBox fx:id="сhartTabPane" spacing="10" VBox.vgrow="ALWAYS">
+    <VBox fx:id="сhartTabPane" styleClass="container" spacing="10" VBox.vgrow="ALWAYS">
         <padding>
             <Insets top="0" right="0" bottom="0" left="5"/>
         </padding>
@@ -18,7 +18,9 @@
             <Button text="Line Plot" onAction="#buildLineChart"/>
             <Button text="PieChart" onAction="#buildPieChart"/>
         </HBox>
-        <StackPane fx:id="charts" VBox.vgrow="ALWAYS"/>
+        <VBox styleClass="card" VBox.vgrow="ALWAYS">
+            <StackPane fx:id="charts" VBox.vgrow="ALWAYS"/>
+        </VBox>
     </VBox>
 
 </VBox>

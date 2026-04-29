@@ -1,1 +1,3 @@
-com\expensetracker\service\ExpenseServiceTest.class
+com\expensetracker\services\ChartServiceTest.class
+com\expensetracker\services\ExpenseServiceTest.class
+com\expensetracker\services\FilterServiceTest.class

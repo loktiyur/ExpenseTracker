@@ -7,6 +7,8 @@ import javafx.collections.transformation.FilteredList;
 import javafx.geometry.Side;
 import javafx.scene.chart.*;
 
+import java.io.Console;
+import java.lang.constant.Constable;
 import java.util.*;
 
 //Service responsible for creating charts
@@ -52,7 +54,6 @@ public class ChartService {
             aggregatedData.merge(month, amount, Double::sum);
         }
 
-        //Supposed to be in data aggregation function
         for(Map.Entry<Integer, Double> entry: aggregatedData.entrySet()){
             series.getData().add(new XYChart.Data(entry.getKey(), entry.getValue()));
         }

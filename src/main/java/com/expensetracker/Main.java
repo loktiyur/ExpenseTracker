@@ -9,6 +9,9 @@ public class Main extends Application {
     public void start(Stage stage) throws Exception{
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/expensetracker/main.fxml"));
         Scene scene = new Scene(fxmlLoader.load(),600,400);
+        scene.getStylesheets().add(
+                getClass().getResource("/com/expensetracker/styles.css").toExternalForm()
+        );
 
         stage.setTitle("Expense tracker");
         stage.setScene(scene);

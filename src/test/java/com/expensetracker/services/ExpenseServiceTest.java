@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.List;
 import java.time.LocalDate;
+import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -20,11 +21,13 @@ public class ExpenseServiceTest {
     @Test
     public void deleteExpenseTest(){
         ExpenseService es = new ExpenseService();
-        Expense expense = new Expense("Food", 22, LocalDate.of(2025, 4, 5));
-        es.addExpense(expense.getCategory(), expense.getAmount(), expense.getDate());
+        es.addExpense("Food", 22, LocalDate.of(2025, 4, 5));
+        Expense added = es.getExpenses().getFirst();
+        UUID id = added.getId();
         int prev_size = es.getExpenses().size();
-        es.deleteExpenses(List.of(expense));
+        es.deleteExpenses(List.of(added));
         assertEquals(prev_size-1, es.getExpenses().size());
+        assertNull(es.getExpensebyId(id));
     }
 
     @Test

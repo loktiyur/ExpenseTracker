@@ -1,10 +1,12 @@
 com\expensetracker\controllers\TableController$1.class
 com\expensestorage\ExpenseStorage$1.class
 com\expensetracker\controllers\MainController.class
+com\expensetracker\services\FilterService.class
 com\expensetracker\services\ChartService.class
 com\expensetracker\Main.class
 com\expensetracker\controllers\ChartsController.class
 com\expensetracker\model\Expense.class
 com\expensestorage\ExpenseStorage.class
+com\expensetracker\services\ExpenseService.class
 com\expensestorage\LocalDateAdapter.class
 com\expensetracker\controllers\TableController.class
